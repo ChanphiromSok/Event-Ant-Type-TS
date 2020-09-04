@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import React,{useRef} from 'react';
 import { render } from 'react-dom';
 
 // Type is more constrain than interface
@@ -20,10 +20,11 @@ function Button(props:  MyButton & React.DetailedHTMLProps<React.InputHTMLAttrib
 }
 
 function App(){
+  const myRef = useRef<HTMLInputElement>(null);
   return(
     <div>
       Hello From Typescript
-      <Input  /> default type Input is type='input'
+      <Input ref={myRef}  /> default type Input is type='input'
       <Button>Hellss</Button>
      </div>
   )
